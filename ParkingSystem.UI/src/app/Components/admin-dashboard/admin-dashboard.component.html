@@ -1,0 +1,116 @@
+<main class="container-md">
+    <h2 class="text-center fw-bold fs-2 mt-2 text-light main-title">Admin Panel</h2>
+    <section>
+        <h4 class="section-title">Quick Summary</h4>
+        <div class="summary-grid">
+            <div class="data-container">
+                <h6 class="data-title">Total Vehicle Number</h6>
+                <p class="data-description">{{adminInfo.allvehicleCount}}</p>
+            </div>
+            <div class="data-container">
+                <h6 class="data-title">Parked Vehicle Number</h6>
+                <p class="data-description">{{adminInfo.parkedVehicleCount}}</p>
+            </div>
+            <div class="data-container">
+                <h6 class="data-title">Unparked Vehicle Number</h6>
+                <p class="data-description">{{adminInfo.unparkedVehicleCount}}</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <h4 class="section-title">All Vehicle List</h4>
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="bg-dark text-light">Vehicle Id</th>
+                        <th class="bg-dark text-light">Parking Id</th>
+                        <th class="bg-dark text-light">Vehicle Number</th>
+                        <th class="bg-dark text-light">Name</th>
+                        <th class="bg-dark text-light">Floor</th>
+                        <th class="bg-dark text-light">Slot</th>
+                        <th class="bg-dark text-light">Parking Time</th>
+                        <th class="bg-dark text-light">Unpark Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of adminInfo.allVehicleList">
+                        <td>{{vehicle.vehicle_Id}}</td>
+                        <td>{{vehicle.customerId}}</td>
+                        <td>{{vehicle.vehicle_Number}}</td>
+                        <td>{{vehicle.owner_Name}}</td>
+                        <td>{{vehicle.floorId}}</td>
+                        <td>{{vehicle.slotId}}</td>
+                        <td>{{vehicle.parkingTime}}</td>
+                        <td>{{vehicle.unparkingTime}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <h4 class="section-title">Parked Vehicle List</h4>
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="bg-dark text-light">Vehicle Id</th>
+                        <th class="bg-dark text-light">Parking Id</th>
+                        <th class="bg-dark text-light">Vehicle Number</th>
+                        <th class="bg-dark text-light">Name</th>
+                        <th class="bg-dark text-light">Floor</th>
+                        <th class="bg-dark text-light">Slot</th>
+                        <th class="bg-dark text-light">Parking Time</th>
+                        <th class="bg-dark text-light">Unpark Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of adminInfo.parkedVehicleList">
+                        <td>{{vehicle.vehicle_Id}}</td>
+                        <td>{{vehicle.customerId}}</td>
+                        <td>{{vehicle.vehicle_Number}}</td>
+                        <td>{{vehicle.owner_Name}}</td>
+                        <td>{{vehicle.floorId}}</td>
+                        <td>{{vehicle.slotId}}</td>
+                        <td>{{vehicle.parkingTime}}</td>
+                        <td>{{vehicle.unparkingTime}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section class="table-section">
+        <h4 class="section-title">All Vehicle List</h4>
+        <div class="">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="bg-dark text-light">Vehicle Id</th>
+                        <th class="bg-dark text-light">Parking Id</th>
+                        <th class="bg-dark text-light">Vehicle Number</th>
+                        <th class="bg-dark text-light">Name</th>
+                        <th class="bg-dark text-light">Floor</th>
+                        <th class="bg-dark text-light">Slot</th>
+                        <th class="bg-dark text-light">Parking Time</th>
+                        <th class="bg-dark text-light">Unpark Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let vehicle of adminInfo.unparkedVehicleList">
+                        <td>{{vehicle.vehicle_Id}}</td>
+                        <td>{{vehicle.customerId}}</td>
+                        <td>{{vehicle.vehicle_Number}}</td>
+                        <td>{{vehicle.owner_Name}}</td>
+                        <td>{{vehicle.floorId}}</td>
+                        <td>{{vehicle.slotId}}</td>
+                        <td>{{vehicle.parkingTime}}</td>
+                        <td>{{vehicle.unparkingTime}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</main>

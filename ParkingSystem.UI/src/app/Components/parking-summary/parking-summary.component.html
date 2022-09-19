@@ -1,0 +1,28 @@
+<section>
+    <div class="section-container">
+        <h4 class="section-title text-dark fw-bold fs-3 text-center my-3">Parking Summary</h4>
+        <div class="data-table">
+            <div class="table-header row fw-bold text-center bg-dark mb-2">
+                <p class="col-2 p-4 m-0 text-light">Floor Id</p>
+                <p class="col-4 p-4 m-0 text-light">Floor Name</p>
+                <p class="col-2 p-4 m-0 text-light">Total Slots</p>
+                <p class="col-2 p-4 m-0 text-light">Filled Slots</p>
+                <p class="col-2 p-4 m-0 text-light">Available Slots</p>
+            </div>
+            <div *ngFor="let zone of ParkingZones">
+                <div class="row text-center bg-custom-success table-body-data" *ngIf="zone.filledSlots < zone.totalSlots">
+                    <p class="col-2 p-1 my-2">{{zone.zoneId}}</p>
+                    <p class="col-4 p-1 my-2">{{zone.zoneTitle}}</p>
+                    <p class="col-2 p-1 my-2">{{zone.totalSlots}}</p>
+                    <p class="col-2 p-1 my-2">{{zone.filledSlots}}</p>
+                    <p class="col-2 p-1 my-2">{{zone.totalSlots - zone.filledSlots}}</p>
+                </div>
+                <div class="row text-center bg-custom-danger table-body-data" *ngIf="zone.filledSlots == zone.totalSlots">
+                    <p class="col-2 p-1 my-2">{{zone.zoneId}}</p>
+                    <p class="col-4 p-1 my-2">{{zone.zoneTitle}}</p>
+                    <p class="col-6 p-1 my-2 text-center fw-bold">------ Zone Filled Completely ------</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

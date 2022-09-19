@@ -1,0 +1,96 @@
+<main class="container-md pt-5">
+    <section class="row gx-0">
+        <div class="col-12 col-lg-6 col-md-6 col-sm-6 px-3">
+            <img class="img-fluid" src="assets/Parking/parking.jpg" alt="unpark_image">
+        </div>
+        <div class="form-side col-12 col-lg-6 col-md-6 col-sm-6">
+            <h3 class="text-center fw-bold mt-3 mb-5 text-muted">Enter details to Park you Car</h3>
+            <h5 class="my-4 p-2 text-center text-success" *ngIf="Validity == 'valid'">Don't worry, we will park your
+                your Vehicle</h5>
+
+            <form class="input-form mx-2 mt-lg-2 mt-md-1 px-lg-3 px-sm-1" #form="ngForm" *ngIf="Validity != 'valid'"
+                (ngSubmit)="submitData()">
+                <div class="from-input-divs">
+                    <label for="Owner_Name" class="input-labels">
+                        <i class="fa fa-solid fa-user"></i>
+                        <span class="mx-2">Owner Name</span>
+                    </label>
+                    <input type="text" name="Owner_Name" id="Owner_Name" class="input-elements"
+                        [(ngModel)]="VehicleOwnerInfo.owner_Name" placeholder="Name Here" required>
+                </div>
+                <div class="from-input-divs">
+                    <label for="phone" class="input-labels">
+                        <i class="fa fa-solid fa-phone"></i>
+                        <span class="mx-2">Mobile Number</span>
+                    </label>
+                    <input type="number" name="phone" id="phone" class="input-elements" min="10" max="10"
+                        placeholder="XXXXX-XXXXX" required>
+                </div>
+                <div class="from-input-divs">
+                    <label for="Vehicle_Number" class="input-labels">
+                        <i class="fa-solid fa-car"></i>
+                        <span class="mx-2">Vehicle Number</span>
+                    </label>
+                    <input type="text" name="Vehicle_Number" id="Vehicle_Number" class="input-elements"
+                        [(ngModel)]="VehicleOwnerInfo.vehicle_Number" placeholder="Eg: MP 20 CA 1452" required>
+                </div>
+                <div class="from-input-divs">
+                    <label for="pin" class="input-labels">
+                        <i class="fa-solid fa-lock"></i>
+                        <span class="mx-2">Password Pin (4 digit)</span>
+                    </label>
+                    <input type="number" name="pin" id="pin" class="input-elements" min="4"
+                        [(ngModel)]="VehicleOwnerInfo.parkingPin" placeholder="XXXX" required>
+                </div>
+
+                <button type="button" class="confirm-button"  data-bs-toggle="modal"  data-bs-target="#staticBackdrop" (click)="generateData()">
+                    Park Vehicle
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog px-3">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Carry these detils with you..</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Parking Id : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.customerId}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Owner Name : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.owner_Name}} </p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Vehicle Number : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.vehicle_Number}} </p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Floor : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.floorId}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Slot Number : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.slotId}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="col-5 fw-bold text-end">Pin : </p>
+                                    <p class="col-7">{{VehicleOwnerInfo.parkingPin}}</p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Go</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

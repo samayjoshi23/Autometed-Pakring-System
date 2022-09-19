@@ -1,0 +1,22 @@
+<section>
+    <div class="section-container container-md">
+        <h4 class="section-title text-dark fw-bold fs-3 text-center mt-3 mb-3">Detailed Parking Overview</h4>
+        <h5 class="section-title text-dark text-center mt-2 mb-5 text-muted">Click on the Slot where you want to park vehicle</h5>
+        <div class="parkingZone-container">
+            <div class="zones" *ngFor="let zone of parkingFloorDetails">
+                <div class="card-heading mb-4">
+                    <h5 class="text-center zone-title">{{zone.zoneTitle}}</h5>
+                    <p class="text-center zone-stats p-1 m-0">Total  : {{zone.totalSlots}}</p>
+                    <p class="text-center zone-stats p-1 m-0">Filled : {{zone.filledSlots}}</p>
+                    <p class="text-center zone-stats p-1 m-0">Available : {{zone.availableSlots}}</p>
+                </div>
+                <div class="slot-container">
+                    <div class="not-avl" *ngIf="zone.availableSlots == 0">
+                        <h3>Floor Full</h3>
+                    </div>
+                    <a [routerLink]="['/parkingDetails/',zone.zoneId,i+1]" class="btn btn-sm {{slot ? 'btn-success' : 'disabled slot-border'}} slot" *ngFor="let slot of zone.allSlots;let i=index">{{slot ? 'Park' : 'NA'}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+<main class="container-md pt-5">
+    <section class="row gx-0">
+        <div class="col-12 col-lg-8 col-md-6 col-sm-6">
+            <img class="img-fluid" src="assets/Unpark/unpark.png" alt="parking_image">
+        </div>
+        <div class="form-side col-12 col-lg-4 col-md-6 col-sm-6">
+            <h4 class="section-title text-dark fw-bold fs-3 text-center">Unpark Your Vehicle</h4>
+            <h5 class="my-4 p-2 text-center text-danger" *ngIf="Validity == 'invalid'">Credentials Invalid...<br> Enter Correct Details</h5>
+            <h5 class="my-4 p-2 text-center text-success" *ngIf="Validity == 'valid'">Owner Validated...<br>Unparking your Vehicle</h5>
+            <h5 class="my-5 p-2 my-5 text-center text-success fw-bold fs-2" *ngIf="Validity == 'valid'">Thankyou for Parking</h5>
+
+            <form class="input-form mx-2 mt-4 p-3" #form="ngForm" (ngSubmit)="submitData()" *ngIf="Validity == 'invalid' || Validity == '' ">
+                <div class="from-input-divs">
+                    <label for="customerId" class="input-labels"><i class="fa fa-light fa-id-card"></i><span class="mx-2">Parking Id</span></label>
+                    <input type="text" name="customerId" id="customerId" class="input-elements" placeholder="Pakring Id"
+                        [(ngModel)]="EnteredId" required>
+                </div>
+                <div class="from-input-divs">
+                    <label for="ParkingPin" class="input-labels"><i class="fa-solid fa-key"></i><span class="mx-2">Password Pin (4 digit)</span></label>
+                    <input type="text" name="ParkingPin" id="ParkingPin" class="input-elements" min="4" max="4" placeholder="X X X X"
+                        [(ngModel)]="EnteredPin" required>
+                </div>
+                <button type="submit" class="btn btn-primary {{(EnteredId && EnteredPin) ? '' : 'disabled'}}">Unpark Vehicle</button>
+            </form>
+        </div>
+    </section>
+</main>
